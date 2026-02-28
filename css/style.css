@@ -8,26 +8,26 @@
 }
 
 :root {
-  --bg-primary: #ecf8f8;
-  --bg-secondary: #eee4e1;
-  --bg-card: #ffffff;
-  --bg-card-hover: #e7d8c9;
-  --text-primary: #3d3d3d;
-  --text-secondary: #6b5d54;
-  --text-muted: #9a8a7d;
-  --accent: #b2967d;
-  --accent-hover: #9a7f64;
-  --accent-glow: rgba(178, 150, 125, 0.15);
-  --accent-light: #e6beae;
-  --warm-cream: #e7d8c9;
-  --peach: #e6beae;
-  --border: #e7d8c9;
-  --border-light: #eee4e1;
-  --gradient-accent: linear-gradient(135deg, #b2967d, #e6beae);
-  --gradient-warm: linear-gradient(135deg, #ecf8f8, #eee4e1, #e7d8c9);
-  --shadow-sm: 0 2px 8px rgba(178, 150, 125, 0.1);
-  --shadow-md: 0 4px 20px rgba(178, 150, 125, 0.15);
-  --shadow-lg: 0 8px 40px rgba(178, 150, 125, 0.2);
+  --bg-primary: #0e0e0e;
+  --bg-secondary: #161616;
+  --bg-card: #1c1c1c;
+  --bg-card-hover: #222222;
+  --text-primary: #f2f2f2;
+  --text-secondary: #a0a0a0;
+  --text-muted: #5a5a5a;
+  --accent: #c9a96e;
+  --accent-hover: #b8965a;
+  --accent-glow: rgba(201, 169, 110, 0.12);
+  --accent-light: #e8d5a8;
+  --warm-cream: #252525;
+  --peach: #2a2a2a;
+  --border: #2a2a2a;
+  --border-light: #1e1e1e;
+  --gradient-accent: linear-gradient(135deg, #c9a96e, #e8d5a8);
+  --gradient-warm: linear-gradient(135deg, #0e0e0e, #161616, #1c1c1c);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.7);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -47,8 +47,8 @@ body {
   font-family: var(--font-main);
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(178, 150, 125, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(231, 216, 201, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(201, 169, 110, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(201, 169, 110, 0.03) 0%, transparent 50%);
   color: var(--text-primary);
   line-height: 1.7;
   min-height: 100vh;
@@ -109,16 +109,16 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(236, 248, 248, 0.95);
+  background: rgba(14, 14, 14, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: all var(--transition);
-  box-shadow: 0 2px 10px rgba(178, 150, 125, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .navbar.scrolled {
-  background: rgba(236, 248, 248, 0.98);
+  background: rgba(14, 14, 14, 0.98);
   box-shadow: var(--shadow-md);
 }
 
@@ -304,8 +304,8 @@ main {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(236, 248, 248, 0.85) 0%,
-    rgba(231, 216, 201, 0.90) 100%
+    rgba(14, 14, 14, 0.70) 0%,
+    rgba(14, 14, 14, 0.85) 100%
   );
   z-index: 2;
   animation: overlayPulse 8s ease-in-out infinite;
@@ -330,12 +330,11 @@ main {
   font-weight: 800;
   letter-spacing: 3px;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--text-primary), var(--accent-hover));
+  background: linear-gradient(135deg, var(--text-primary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 10px rgba(178, 150, 125, 0.2);
   animation: heroTitleFloat 3s ease-in-out infinite;
 }
 
@@ -422,7 +421,7 @@ main {
 
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(178, 150, 125, 0.35);
+  box-shadow: 0 8px 25px rgba(201, 169, 110, 0.35);
   color: #fff;
 }
 
@@ -453,6 +452,7 @@ main {
   border-bottom: none;
   box-shadow: var(--shadow-sm);
   animation: fadeSlideDown 0.6s ease;
+  border-top: 3px solid var(--accent);
 }
 
 @keyframes fadeSlideDown {
@@ -666,17 +666,17 @@ main {
   padding: 0.25rem 0.65rem;
   border-radius: 20px;
   font-size: 0.8rem;
-  border: 1px solid var(--accent-light);
+  border: 1px solid var(--border);
   transition: all var(--transition);
-  box-shadow: 0 2px 4px rgba(178, 150, 125, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .skill-tag:hover {
   background: var(--accent);
-  color: #fff;
+  color: #111;
   border-color: var(--accent);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 4px 12px rgba(178, 150, 125, 0.25);
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
 }
 
 /* Publication */
@@ -772,7 +772,7 @@ main {
 .form-group textarea:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-glow);
-  background: #fff;
+  background: #222222;
   transform: translateY(-2px);
 }
 
@@ -802,9 +802,9 @@ main {
 
 .form-status.success {
   display: block;
-  background: rgba(152, 195, 121, 0.15);
-  color: #5c8a3d;
-  border: 1px solid rgba(152, 195, 121, 0.3);
+  background: rgba(152, 195, 121, 0.1);
+  color: #7ac757;
+  border: 1px solid rgba(152, 195, 121, 0.25);
   animation: slideDown 0.4s ease;
 }
 
@@ -863,7 +863,7 @@ main {
   border-color: var(--accent);
   transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-lg);
-  background: linear-gradient(135deg, #fff, var(--bg-secondary));
+  background: linear-gradient(135deg, #222222, var(--bg-secondary));
 }
 
 .contact-card .card-icon {
@@ -938,7 +938,7 @@ main {
   border-top: 1px solid var(--border);
   padding: 2rem;
   text-align: center;
-  background: linear-gradient(to bottom, var(--bg-secondary), var(--warm-cream));
+  background: linear-gradient(to bottom, var(--bg-secondary), #111111);
   position: relative;
   overflow: hidden;
 }
@@ -1186,7 +1186,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(178, 150, 125, 0.4);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   z-index: 999;
   animation: fadeIn 0.3s ease;
@@ -1221,14 +1221,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: #111111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: #333333;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-hover);
+  background: var(--accent);
 }
