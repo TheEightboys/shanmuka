@@ -35,19 +35,179 @@
 
   <!-- Main Content -->
   <main>
-    <div class="page-container">
-      <div class="placeholder-section">
-        <div class="icon">🏠</div>
-        <h2>Home Page Coming Soon</h2>
-        <p>Content is being collected and designed. Check back soon for an updated landing experience.</p>
-        <br>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="resume.html" class="btn btn-primary">View Resume</a>
-          <a href="contact.html" class="btn btn-outline">Contact Me</a>
-        </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section hero-home">
+      <div class="hero-background" style="background-image: url('images/cinchseal-experience.jpeg');"></div>
+      <div class="hero-content">
+        <p class="hero-subtitle">Mechanical Engineering Portfolio</p>
+        <h1>SHANMUKHA RAM PERI</h1>
+        <p>Thanks for checking out my portfolio! Whether you're a recruiter, fellow engineer, friend, or lost stranger, I hope you enjoy the ride.</p>
       </div>
+    </section>
+
+    <div class="page-container">
+
+      <!-- Summary Section -->
+      <section class="home-summary animate-in">
+        <h2 class="section-heading">Summary</h2>
+        <p class="summary-tagline">Mechanical Engineer. Builder by instinct. Problem-solver by training.</p>
+        <p class="summary-text">Currently designing real-world solutions &mdash; still curious enough to take things apart just to see how they work.</p>
+
+        <div class="strengths-weaknesses">
+          <div class="sw-card sw-strengths">
+            <h3>Strengths</h3>
+            <ul>
+              <li>Addicted to machining and hands-on building.</li>
+              <li>Strong engineering fundamentals with practical execution.</li>
+              <li>Design &rarr; Build &rarr; Test &rarr; Improve mindset.</li>
+              <li>Comfortable between CAD models and shop floor realities.</li>
+            </ul>
+          </div>
+          <div class="sw-card sw-weaknesses">
+            <h3>Weaknesses</h3>
+            <ul>
+              <li>Sometimes over-optimizes details.</li>
+              <li>Can't leave a mechanical problem &ldquo;good enough.&rdquo;</li>
+              <li>Occasionally take things apart without checking the manual first.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="home-experience animate-in">
+        <h2 class="section-heading">Experience</h2>
+        <div class="exp-grid">
+
+          <!-- CinchSeal -->
+          <div class="exp-card" onclick="openModal('cinchseal')">
+            <div class="exp-card-img">
+              <img src="images/seal-1.png" alt="CinchSeal rotary seal design">
+            </div>
+            <div class="exp-card-body">
+              <span class="exp-date">Jan 2024 &ndash; Present</span>
+              <h3>CinchSeal</h3>
+              <p class="exp-role">Mechanical Engineer (R&amp;D)</p>
+              <p class="exp-loc">Cherry Hill, NJ, USA</p>
+            </div>
+          </div>
+
+          <!-- Toshiba -->
+          <div class="exp-card" onclick="openModal('toshiba')">
+            <div class="exp-card-img">
+              <img src="images/toshiba.png" alt="Toshiba Global Commerce Solutions">
+            </div>
+            <div class="exp-card-body">
+              <span class="exp-date">Jun 2022 &ndash; Aug 2022</span>
+              <h3>Toshiba Global Commerce Solutions</h3>
+              <p class="exp-role">Mechanical Engineering Intern</p>
+              <p class="exp-loc">Durham, NC, USA</p>
+            </div>
+          </div>
+
+          <!-- Garuda 3D -->
+          <div class="exp-card" onclick="openModal('garuda')">
+            <div class="exp-card-img">
+              <img src="images/garuda-3d.png" alt="Garuda 3D">
+            </div>
+            <div class="exp-card-body">
+              <span class="exp-date">Dec 2020 &ndash; Jul 2021</span>
+              <h3>Garuda 3D</h3>
+              <p class="exp-role">Mechanical Engineering Intern</p>
+              <p class="exp-loc">Hyderabad, TL, India</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="home-cta animate-in">
+        <a href="resume.html" class="btn btn-primary">View Full Resume</a>
+        <a href="projects.html" class="btn btn-outline">See Projects</a>
+        <a href="contact.html" class="btn btn-outline">Contact Me</a>
+      </section>
+
     </div>
   </main>
+
+  <!-- ======= Experience Modals ======= -->
+
+  <!-- CinchSeal Modal -->
+  <div class="exp-modal-overlay" id="modal-cinchseal" onclick="closeModalOutside(event)">
+    <div class="exp-modal">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-header">
+        <img src="images/cinchseal.jpg" alt="CinchSeal" class="modal-logo">
+        <div>
+          <h2>CinchSeal</h2>
+          <p class="exp-role">Mechanical Engineer (R&amp;D) &bull; Jan 2024 &ndash; Present</p>
+          <p class="exp-loc">Cherry Hill, NJ, USA</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>I design and develop rotary valve and soft-face mechanical seal solutions for industrial equipment including screw conveyors, augers, mixers, and live bottom feeders. With over 500 seal designs and 100+ released engineering drawings in SolidWorks, I bridge design and manufacturing through optimized GD&amp;T practices and production-ready documentation.</p>
+        <p>I also lead on-site installations across diverse industries, perform durability testing under real operating conditions, validate global manufacturing quality, and support technical quoting &mdash; contributing directly to both engineering performance and business growth.</p>
+      </div>
+      <div class="modal-gallery">
+        <img src="images/seal-1.png" alt="Seal design 1">
+        <img src="images/seal-2.png" alt="Seal design 2">
+        <img src="images/cinchseal-experience.jpeg" alt="CinchSeal on-site">
+      </div>
+    </div>
+  </div>
+
+  <!-- Toshiba Modal -->
+  <div class="exp-modal-overlay" id="modal-toshiba" onclick="closeModalOutside(event)">
+    <div class="exp-modal">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-header">
+        <img src="images/toshiba.png" alt="Toshiba" class="modal-logo">
+        <div>
+          <h2>Toshiba Global Commerce Solutions</h2>
+          <p class="exp-role">Mechanical Engineering Intern &bull; Jun 2022 &ndash; Aug 2022</p>
+          <p class="exp-loc">Durham, NC, USA</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>During my internship at Toshiba, I engineered anti-theft camera housing systems for self-checkout platforms, integrating sheet metal and injection-molded components to improve surveillance effectiveness by 25%. I prototyped and validated designs using 3D printing and workshop fabrication tools, achieving 90% design accuracy against performance targets.</p>
+        <p>Additionally, I researched emerging technologies including LiDAR, AR, and VR, contributing four innovation proposals to the Toshiba summer invention challenge.</p>
+      </div>
+      <div class="modal-gallery">
+        <img src="images/toshiba-experience.jpg" alt="Toshiba experience">
+        <img src="images/toshiba-1.jpeg" alt="Toshiba project 1">
+        <img src="images/toshiba-2.jpg" alt="Toshiba project 2">
+        <img src="images/toshiba-3.jpeg" alt="Toshiba project 3">
+      </div>
+    </div>
+  </div>
+
+  <!-- Garuda 3D Modal -->
+  <div class="exp-modal-overlay" id="modal-garuda" onclick="closeModalOutside(event)">
+    <div class="exp-modal">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-header">
+        <img src="images/garuda-3d.png" alt="Garuda 3D" class="modal-logo">
+        <div>
+          <h2>Garuda 3D</h2>
+          <p class="exp-role">Mechanical Engineering Intern &bull; Dec 2020 &ndash; Jul 2021</p>
+          <p class="exp-loc">Hyderabad, TL, India</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>As a Mechanical Engineering Intern at Garuda 3D, I designed and 3D printed over 25 microcontroller enclosure prototypes using SolidWorks and Ultimaker Cura, ensuring performance optimization and adherence to design specifications.</p>
+        <p>I developed assembly instructions using line balancing principles to streamline production workflows for 50+ FDM 3D printers, improving manufacturing speed by 15%. Additionally, I conducted technical workshops on additive manufacturing for 200+ students and educators, delivering hands-on training in 3D printing hardware and slicing software.</p>
+      </div>
+      <div class="modal-gallery">
+        <img src="images/garuda-3d-main.png" alt="Garuda 3D main">
+        <img src="images/garuda-3d-2.jpg" alt="Garuda 3D project 2">
+        <img src="images/garuda-3d-3.jpg" alt="Garuda 3D project 3">
+        <img src="images/garuda-3d-4.jpg" alt="Garuda 3D project 4">
+        <img src="images/garuda-4d-1.jpg" alt="Garuda 3D workshop">
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">

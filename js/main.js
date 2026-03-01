@@ -108,3 +108,29 @@ function initContactForm() {
 }
 
 document.addEventListener('DOMContentLoaded', initContactForm);
+
+// ===== EXPERIENCE MODALS =====
+function openModal(id) {
+  const modal = document.getElementById('modal-' + id);
+  if (!modal) return;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.querySelectorAll('.exp-modal-overlay.active').forEach(m => {
+    m.classList.remove('active');
+  });
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target.classList.contains('exp-modal-overlay')) {
+    closeModal();
+  }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
