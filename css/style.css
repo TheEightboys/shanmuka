@@ -1376,107 +1376,223 @@ main {
   font-weight: 700;
 }
 
-/* Experience Cards */
+/* Experience Timeline */
 .home-experience {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
-.exp-grid {
+.exp-timeline {
+  position: relative;
+  padding: 1rem 0 0.5rem;
+}
+
+/* The vertical center line */
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
+}
+
+/* Each timeline row */
+.tl-entry {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+  margin-bottom: 4rem;
+  position: relative;
 }
 
-.exp-card {
+.tl-entry:last-child {
+  margin-bottom: 0;
+}
+
+/* Image panel */
+.tl-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+  background: var(--bg-secondary);
+  height: 240px;
+}
+
+.tl-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition);
+}
+
+.tl-entry:hover .tl-image {
+  box-shadow: var(--shadow-md);
+  transform: scale(1.02);
+}
+
+.tl-entry:hover .tl-image img {
+  transform: scale(1.04);
+}
+
+/* Center node column */
+.tl-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 0;
+}
+
+/* Company logo dot */
+.tl-dot {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+  box-shadow: 0 0 0 4px var(--bg-primary), var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.tl-dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tl-entry:hover .tl-dot {
+  box-shadow: 0 0 0 4px var(--bg-primary), 0 0 0 6px var(--accent-light), var(--shadow-md);
+  transform: scale(1.12);
+}
+
+/* Content panel */
+.tl-content {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 1.5rem 1.75rem;
   cursor: pointer;
   transition: all var(--transition);
   position: relative;
 }
 
-.exp-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+.tl-content:hover {
   border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
 }
 
-.exp-card::after {
-  content: 'Click to expand →';
+/* Reverse entry: arrow point flips */
+.tl-reverse .tl-content:hover {
+  transform: translateX(-4px);
+}
+
+/* Arrow connector from content toward the node */
+.tl-content::before {
+  content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent);
-  background: linear-gradient(to top, var(--bg-card) 60%, transparent);
-  opacity: 0;
-  transition: opacity var(--transition);
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 10px solid var(--border);
 }
 
-.exp-card:hover::after {
-  opacity: 1;
+.tl-content::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 9px solid var(--bg-card);
 }
 
-.exp-card-img {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
+/* Reverse: arrow points the other way */
+.tl-reverse .tl-content::before {
+  left: auto;
+  right: -10px;
+  border-right: none;
+  border-left: 10px solid var(--border);
 }
 
-.exp-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 1rem;
-  transition: transform var(--transition);
+.tl-reverse .tl-content::after {
+  left: auto;
+  right: -8px;
+  border-right: none;
+  border-left: 9px solid var(--bg-card);
 }
 
-.exp-card:hover .exp-card-img img {
-  transform: scale(1.05);
-}
-
-.exp-card-body {
-  padding: 1.25rem 1.25rem 2rem;
-}
-
-.exp-date {
+.tl-date {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.8px;
   color: var(--accent);
-  margin-bottom: 0.35rem;
+  background: var(--accent-light);
+  border: 1px solid rgba(29, 78, 216, 0.18);
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
 }
 
-.exp-card-body h3 {
+.tl-content h3 {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.25rem;
 }
 
-.exp-role {
+.tl-content .exp-role {
   color: var(--text-secondary);
   font-size: 0.88rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.35rem;
 }
 
-.exp-loc {
+.tl-content .exp-loc {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
   color: var(--text-muted);
   font-size: 0.82rem;
+  margin-bottom: 1rem;
+}
+
+.tl-content .exp-loc svg {
+  flex-shrink: 0;
+}
+
+.tl-cta {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: gap var(--transition);
+  letter-spacing: 0.2px;
+}
+
+.tl-content:hover .tl-cta {
+  text-decoration: underline;
 }
 
 /* Quick CTA */
@@ -1684,9 +1800,45 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .exp-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+  /* Timeline collapses to single column on mobile */
+  .exp-timeline::before {
+    left: 28px;
+  }
+
+  .tl-entry,
+  .tl-entry.tl-reverse {
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem 0;
+  }
+
+  .tl-image {
+    display: none;
+  }
+
+  .tl-node {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: start;
+    padding-top: 1.5rem;
+  }
+
+  .tl-content,
+  .tl-entry.tl-reverse .tl-content {
+    grid-column: 2;
+    grid-row: 1;
+    transform: none !important;
+  }
+
+  .tl-content::before,
+  .tl-content::after,
+  .tl-entry.tl-reverse .tl-content::before,
+  .tl-entry.tl-reverse .tl-content::after {
+    display: none;
+  }
+
+  .tl-entry.tl-reverse .tl-node {
+    order: -1;
   }
 
   .exp-modal {
