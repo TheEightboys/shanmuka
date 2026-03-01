@@ -1392,8 +1392,7 @@ main {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 27px;
   width: 2px;
   background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
 }
@@ -1401,9 +1400,10 @@ main {
 /* Each timeline row */
 .tl-entry {
   display: grid;
-  grid-template-columns: 1fr 80px 1fr;
+  grid-template-columns: 56px 1fr;
+  gap: 0 1.5rem;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   position: relative;
 }
 
@@ -1411,35 +1411,7 @@ main {
   margin-bottom: 0;
 }
 
-/* Image panel */
-.tl-image {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
-  background: var(--bg-secondary);
-  height: 240px;
-}
-
-.tl-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform var(--transition);
-}
-
-.tl-entry:hover .tl-image {
-  box-shadow: var(--shadow-md);
-  transform: scale(1.02);
-}
-
-.tl-entry:hover .tl-image img {
-  transform: scale(1.04);
-}
-
-/* Center node column */
+/* Node column */
 .tl-node {
   display: flex;
   flex-direction: column;
@@ -1494,12 +1466,7 @@ main {
   transform: translateX(4px);
 }
 
-/* Reverse entry: arrow point flips */
-.tl-reverse .tl-content:hover {
-  transform: translateX(-4px);
-}
-
-/* Arrow connector from content toward the node */
+/* Arrow connector pointing left toward the node */
 .tl-content::before {
   content: '';
   position: absolute;
@@ -1524,21 +1491,6 @@ main {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-right: 9px solid var(--bg-card);
-}
-
-/* Reverse: arrow points the other way */
-.tl-reverse .tl-content::before {
-  left: auto;
-  right: -10px;
-  border-right: none;
-  border-left: 10px solid var(--border);
-}
-
-.tl-reverse .tl-content::after {
-  left: auto;
-  right: -8px;
-  border-right: none;
-  border-left: 9px solid var(--bg-card);
 }
 
 .tl-date {
@@ -1800,45 +1752,19 @@ main {
     grid-template-columns: 1fr;
   }
 
-  /* Timeline collapses to single column on mobile */
+  /* Timeline mobile */
   .exp-timeline::before {
-    left: 28px;
+    left: 27px;
   }
 
   .tl-entry,
   .tl-entry.tl-reverse {
     grid-template-columns: 56px 1fr;
-    grid-template-rows: auto auto;
-    gap: 0.75rem 0;
-  }
-
-  .tl-image {
-    display: none;
-  }
-
-  .tl-node {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    align-self: start;
-    padding-top: 1.5rem;
   }
 
   .tl-content,
   .tl-entry.tl-reverse .tl-content {
-    grid-column: 2;
-    grid-row: 1;
     transform: none !important;
-  }
-
-  .tl-content::before,
-  .tl-content::after,
-  .tl-entry.tl-reverse .tl-content::before,
-  .tl-entry.tl-reverse .tl-content::after {
-    display: none;
-  }
-
-  .tl-entry.tl-reverse .tl-node {
-    order: -1;
   }
 
   .exp-modal {
