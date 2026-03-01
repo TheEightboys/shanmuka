@@ -1392,7 +1392,8 @@ main {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 27px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 2px;
   background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
 }
@@ -1400,8 +1401,8 @@ main {
 /* Each timeline row */
 .tl-entry {
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 0 1.5rem;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 0 0;
   align-items: center;
   margin-bottom: 3rem;
   position: relative;
@@ -1411,8 +1412,9 @@ main {
   margin-bottom: 0;
 }
 
-/* Node column */
+/* Node column — always centered */
 .tl-node {
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1449,8 +1451,10 @@ main {
   transform: scale(1.12);
 }
 
-/* Content panel */
+/* Content panel — default: right side (col 3) */
 .tl-content {
+  grid-column: 3;
+  grid-row: 1;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -1458,6 +1462,7 @@ main {
   cursor: pointer;
   transition: all var(--transition);
   position: relative;
+  margin-left: 1.5rem;
 }
 
 .tl-content:hover {
@@ -1466,7 +1471,24 @@ main {
   transform: translateX(4px);
 }
 
-/* Arrow connector pointing left toward the node */
+/* Reversed: left side (col 1) */
+.tl-reverse .tl-content {
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: 0;
+  margin-right: 1.5rem;
+  text-align: right;
+}
+
+.tl-reverse .tl-content:hover {
+  transform: translateX(-4px);
+}
+
+.tl-reverse .tl-content .exp-loc {
+  justify-content: flex-end;
+}
+
+/* Arrow: normal entry points LEFT toward dot */
 .tl-content::before {
   content: '';
   position: absolute;
@@ -1491,6 +1513,21 @@ main {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-right: 9px solid var(--bg-card);
+}
+
+/* Arrow: reversed entry points RIGHT toward dot */
+.tl-reverse .tl-content::before {
+  left: auto;
+  right: -10px;
+  border-right: none;
+  border-left: 10px solid var(--border);
+}
+
+.tl-reverse .tl-content::after {
+  left: auto;
+  right: -8px;
+  border-right: none;
+  border-left: 9px solid var(--bg-card);
 }
 
 .tl-date {
@@ -1752,9 +1789,10 @@ main {
     grid-template-columns: 1fr;
   }
 
-  /* Timeline mobile */
+  /* Timeline mobile: collapse to left-side layout */
   .exp-timeline::before {
     left: 27px;
+    transform: none;
   }
 
   .tl-entry,
@@ -1762,9 +1800,36 @@ main {
     grid-template-columns: 56px 1fr;
   }
 
+  .tl-node {
+    grid-column: 1;
+  }
+
   .tl-content,
-  .tl-entry.tl-reverse .tl-content {
+  .tl-reverse .tl-content {
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: 1rem;
+    margin-right: 0;
+    text-align: left;
     transform: none !important;
+  }
+
+  .tl-reverse .tl-content .exp-loc {
+    justify-content: flex-start;
+  }
+
+  .tl-reverse .tl-content::before {
+    left: -10px;
+    right: auto;
+    border-right: 10px solid var(--border);
+    border-left: none;
+  }
+
+  .tl-reverse .tl-content::after {
+    left: -8px;
+    right: auto;
+    border-right: 9px solid var(--bg-card);
+    border-left: none;
   }
 
   .exp-modal {
