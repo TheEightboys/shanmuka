@@ -1402,7 +1402,7 @@ main {
 /* Each timeline row: image | dot | content  OR  content | dot | image */
 .tl-entry {
   display: grid;
-  grid-template-columns: 1fr 80px 1fr;
+  grid-template-columns: 1fr 120px 1fr;
   align-items: center;
   margin-bottom: 4rem;
   position: relative;
@@ -1462,16 +1462,16 @@ main {
 
 /* Company logo dot */
 .tl-dot {
-  width: 60px;
-  height: 60px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background: var(--bg-card);
-  border: 2px solid var(--accent);
+  border: 3px solid var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 7px;
+  padding: 10px;
   box-shadow: 0 0 0 5px var(--bg-primary), var(--shadow-sm);
   transition: box-shadow var(--transition), transform var(--transition);
 }
@@ -1821,13 +1821,13 @@ main {
 
   /* Timeline mobile: left-edge line, hide images, single column */
   .exp-timeline::before {
-    left: 29px;
+    left: 47px;
     transform: none;
   }
 
   .tl-entry,
   .tl-entry.tl-reverse {
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 96px 1fr;
     grid-template-rows: auto;
   }
 
