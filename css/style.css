@@ -1066,6 +1066,32 @@ main {
 }
 
 /* ===== PUBLICATIONS PAGE ===== */
+.pub-intro {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pub-intro p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0;
+}
+
+.pub-scholar-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .pub-section {
   margin-bottom: 3.5rem;
 }
@@ -1095,6 +1121,7 @@ main {
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 0.65rem;
+  flex-wrap: wrap;
 }
 
 .pub-year {
@@ -1110,45 +1137,37 @@ main {
 
 .pub-type {
   font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  font-weight: 700;
   padding: 0.15rem 0.6rem;
   border-radius: 4px;
   letter-spacing: 0.3px;
+  color: #fff;
 }
+
+.pub-type-ieee    { background: #00629b; }
+.pub-type-springer { background: #b5121b; }
+.pub-type-elsevier { background: #ff6200; }
 
 .pub-title {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   line-height: 1.45;
-}
-
-.pub-title a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
-.pub-title a:hover {
-  color: var(--accent);
-  text-decoration: underline;
 }
 
 .pub-authors {
   font-size: 0.88rem;
   color: var(--text-secondary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.6rem;
 }
 
-.pub-venue {
-  font-size: 0.85rem;
+.pub-desc {
+  font-size: 0.875rem;
   color: var(--text-muted);
-  margin-bottom: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }
 
 .pub-links {
