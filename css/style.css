@@ -1650,31 +1650,6 @@ main {
   border-left: 9px solid var(--bg-card);
 }
 
-/* Image inside card — top section */
-.tl-card-img {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tl-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  transition: transform var(--transition);
-}
-
-.tl-content:hover .tl-card-img img {
-  transform: scale(1.04);
-}
-
 /* Text content below image */
 .tl-card-body {
   padding: 1.25rem 1.5rem 1.5rem;
@@ -1971,10 +1946,6 @@ main {
   .tl-reverse .tl-content::before,
   .tl-reverse .tl-content::after {
     display: none;
-  }
-
-  .tl-card-img {
-    height: 160px;
   }
 
   .exp-modal {
