@@ -1065,6 +1065,194 @@ main {
   }
 }
 
+/* ===== PROJECTS PAGE ===== */
+.proj-intro {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.proj-intro p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 700px;
+}
+
+.proj-pub-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.proj-grid-section {
+  margin-bottom: 3rem;
+}
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.proj-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.proj-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.proj-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.proj-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.18;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: opacity var(--transition);
+}
+
+.proj-card:hover .proj-num {
+  opacity: 0.45;
+}
+
+.proj-domains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding-top: 0.25rem;
+}
+
+.proj-domains span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  background: var(--accent-light);
+  border: 1px solid rgba(29, 78, 216, 0.18);
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+}
+
+.proj-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.proj-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Video placeholder */
+.proj-media.proj-video-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 130px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: border-color var(--transition);
+}
+
+.proj-card:hover .proj-video-placeholder {
+  border-color: var(--accent);
+}
+
+/* Results table */
+.proj-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.proj-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.proj-table th {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.proj-table td {
+  padding: 0.55rem 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.proj-table tr:last-child td {
+  border-bottom: none;
+}
+
+.proj-table tr:nth-child(even) td {
+  background: var(--bg-secondary);
+}
+
+/* Skills tags */
+.proj-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.proj-skills span {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+
 /* ===== PUBLICATIONS PAGE ===== */
 .pub-intro {
   background: var(--bg-card);
@@ -1904,6 +2092,15 @@ main {
   .cert-header {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proj-intro {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .cert-viewer {
