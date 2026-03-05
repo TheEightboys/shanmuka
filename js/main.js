@@ -64,46 +64,60 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ===== CONTACT FORM (EmailJS) =====
+// ===== CONTACT FORM (Web3Forms) =====
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
+  const submitBtn = form.querySelector('.btn-submit');
+  const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('.btn-submit');
     const statusEl = document.getElementById('form-status');
-    const originalText = btn.textContent;
 
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+    // Show sending state
+    if (submitBtn) {
+      submitBtn.innerHTML = 'Sending\u2026';
+      submitBtn.disabled = true;
+    }
     statusEl.className = 'form-status';
-    statusEl.style.display = 'none';
+    statusEl.textContent = '';
 
-    const formData = new FormData(form);
+    // Collect form data as plain object for JSON serialization
+    // (more reliable than FormData on older iOS/Android WebViews)
+    const data = {};
+    new FormData(form).forEach((value, key) => { data[key] = value; });
 
     try {
-      // Using Formspree - replace YOUR_FORM_ID with actual Formspree endpoint
-      const response = await fetch(form.action, {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
       });
 
-      if (response.ok) {
-        statusEl.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+      const result = await response.json();
+
+      if (result.success) {
+        statusEl.textContent = '\u2713 Message sent! I\'ll get back to you soon.';
         statusEl.className = 'form-status success';
         form.reset();
       } else {
-        throw new Error('Failed to send');
+        throw new Error(result.message || 'Submission failed');
       }
-    } catch (error) {
-      statusEl.textContent = '✕ Something went wrong. Please try emailing me directly.';
+    } catch (err) {
+      statusEl.textContent = '\u2715 Something went wrong. Please email me at shanmukhram123@gmail.com';
       statusEl.className = 'form-status error';
     }
 
-    btn.textContent = originalText;
-    btn.disabled = false;
+    // Restore button
+    if (submitBtn) {
+      submitBtn.innerHTML = originalBtnHTML;
+      submitBtn.disabled = false;
+    }
   });
 }
 

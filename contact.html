@@ -56,12 +56,17 @@
           <p>Send me a message and I'll get back to you as soon as possible.</p>
 
           <!--
-            SETUP: Replace the form action URL with your Formspree endpoint.
-            1. Go to https://formspree.io and sign up (free tier available).
-            2. Create a new form linked to shanmukhram123@gmail.com.
-            3. Replace "https://formspree.io/f/YOUR_FORM_ID" below with your form URL.
+            SETUP: Get your free Web3Forms access key:
+            1. Go to https://web3forms.com
+            2. Enter shanmukhram123@gmail.com and click "Create Access Key"
+            3. Check your email and copy the access key
+            4. Replace YOUR_ACCESS_KEY below with that key
           -->
-          <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New message from Portfolio Contact Form">
+            <input type="hidden" name="from_name" value="Portfolio Contact Form">
+            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label for="name">Your Name <span class="required">*</span></label>
               <input type="text" id="name" name="name" placeholder="John Doe" required>
